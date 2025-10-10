@@ -18,11 +18,17 @@ function App() {
 
 const [review , setReview] = useState('')
 
-async function  reviewCode() {
-  const response = await axios.post('http://localhost:3000/ai/get-review', {code})
-  setReview (response.data)
-  
+async function reviewCode() {
+  const apiUrl =
+    window.location.hostname === "localhost"
+      ? "http://localhost:3000"
+      : "https://ai-powered-code-reviewer-pdxo.onrender.com";
+
+  const response = await axios.post(`${apiUrl}/ai/get-review`, { code });
+  setReview(response.data);
 }
+
+
 
 
 
