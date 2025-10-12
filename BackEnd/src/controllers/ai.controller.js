@@ -10,7 +10,7 @@ export const getReview = async (req, res) => {
 
     try {
         const response = await generateContent(code);
-        res.send(response); // fixed typo: renspose → response
+        res.send(response); 
     } catch (error) {
         console.error(error);
         res.status(500).send("Error generating content");
