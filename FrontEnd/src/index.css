@@ -1,1 +1,75 @@
 @import "tailwindcss";
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 24px;
+  --accent: #f97316;
+}
+
+body {
+  @apply bg-[#111111] text-[#e5e7eb] antialiased selection:bg-orange-500/30 font-light;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, .branding {
+  font-family: 'Quintessential', cursive;
+  font-weight: 400 !important;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  @apply rounded-[32px] overflow-hidden transition-all duration-700;
+}
+
+.glass-nav {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  @apply sticky top-4 mx-auto max-w-5xl inset-x-0 z-50 px-8 py-3 rounded-2xl flex items-center justify-between border border-white/[0.05] shadow-2xl;
+}
+
+.accent-text {
+  @apply text-orange-500;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-orange-400 to-orange-600 font-normal;
+}
+
+.btn-primary {
+  @apply bg-orange-600 hover:bg-orange-500 text-white font-normal py-3 px-10 rounded-full transition-all duration-500 shadow-xl shadow-orange-600/10 hover:shadow-orange-600/20 active:scale-[0.98] flex items-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-white/[0.03] hover:bg-white/[0.08] text-white font-normal py-3 px-10 rounded-full border border-white/10 transition-all duration-500 active:scale-[0.98];
+}
+
+.editor-container .npm-editor-textarea {
+  outline: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
